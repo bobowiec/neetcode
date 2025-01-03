@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
 
-    # brute force: time complexity O(n^2), space complexity O(1)
+    # brute force: time complexity O(N^2), space complexity O(1)
     def twoSumBruteForce(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums) - 1):
             for j in range(i+1, len(nums)):
@@ -11,7 +11,7 @@ class Solution:
                     return [i, j]
         return []
     
-    # two pointers technique: time complexity O(nlogn), space complexity O(1)
+    # two pointers technique: time complexity O(N*logN), space complexity O(N)
     def twoSumTwoPointers(self, nums: List[int], target: int) -> List[int]:
         nums = [(num, i) for i, num in enumerate(nums)]
         nums.sort()
@@ -25,7 +25,7 @@ class Solution:
                 right -= 1
         return []
     
-    # two pass hash maps: time complexity O(n), space complexity O(n)
+    # two passes over hash maps: time complexity O(N), space complexity O(N)
     def twoSumTwoPassHashMaps(self, nums: List[int], target: int) -> List[int]:
         hash_map = {}
         for i, num in enumerate(nums):
@@ -37,7 +37,7 @@ class Solution:
                 return [i, hash_map[diff]]
         return []
 
-    # hash table: time complexity O(n), space complexity O(n)
+    # one pass over hash table: time complexity O(N), space complexity O(N)
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hash_map = {}
         for i, num in enumerate(nums):
